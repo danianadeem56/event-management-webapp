@@ -39,6 +39,7 @@ function showToast(message, type){
         toast.style.top = "-120px";
     }, 2000);
 }
+
 /* Show Events */
 function displayEvents() {
 
