@@ -1,4 +1,3 @@
-
 let events = [
     {
         name: "Tech Seminar",
