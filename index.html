@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Event Management System</h1>
+        <p>Manage Your Events Easily</p>
+    </header>
+
+    <main>
+
+        <!-- Search -->
+        <section class="search-section">
+            <input type="text" id="searchInput" placeholder="Search by Event Name or Date">
+        </section>
+
+        <!-- Form -->
+        <section class="form-section">
+            <h2>Add New Event</h2>
+
+            <input type="text" id="eventName" placeholder="Event Name">
+            <input type="date" id="eventDate">
+            <textarea id="eventDescription" placeholder="Event Description"></textarea>
+
+            <button class="btn" onclick="addEvent()">Add Event</button>
+
+            <p id="warning"></p>
+        </section>
+<!-- Event -->
+        <section class="upcoming-section">
+            <h2>Events</h2>
+        </section>
+
+        <!-- Events List -->
+        <section id="eventList" class="event-container"></section>
+
+    </main>
+
+    <!-- Popup -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Dania Nadeem © 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
