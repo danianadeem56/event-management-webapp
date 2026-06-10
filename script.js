@@ -35,12 +35,12 @@ function showToast(message, type){
 
     toast.style.top = "5px";
 
-    setTimeout(() => {
+    setTimeout(function(){
         toast.style.top = "-120px";
     }, 2000);
 }
 
-/* Show Events */
+/* Display Events */
 function displayEvents() {
 
     let output = "";
@@ -63,7 +63,6 @@ function displayEvents() {
     document.getElementById("eventList").innerHTML = output;
 }
 
-
 /* Add Event */
 function addEvent() {
 
@@ -82,23 +81,20 @@ function addEvent() {
         description: description
     });
 
-    showToast("Event Added Successfully!", "success");
-
-    // sort by date
     events.sort(function(a, b){
         return new Date(a.date) - new Date(b.date);
     });
 
+    showToast("Event Added Successfully!", "success");
+
     displayEvents();
 
-    // clear form
     document.getElementById("eventName").value = "";
     document.getElementById("eventDate").value = "";
     document.getElementById("eventDescription").value = "";
 }
 
-
-/* Delete Form */
+/* Delete Event */
 function deleteEvent(index) {
 
     events.splice(index, 1);
@@ -108,20 +104,22 @@ function deleteEvent(index) {
     displayEvents();
 }
 
-
 /* Search */
 document.getElementById("searchInput").addEventListener("keyup", function() {
 
     let search = this.value.toLowerCase();
 
-    let filteredEvents = events.filter(event =>
-        event.name.toLowerCase().includes(search) ||
-        event.date.includes(search)
-    );
+    let filteredEvents = events.filter(function(event){
+
+        return event.name.toLowerCase().includes(search) ||
+               event.date.includes(search);
+    });
 
     let output = "";
 
     for(let i = 0; i < filteredEvents.length; i++) {
+
+        let originalIndex = events.indexOf(filteredEvents[i]);
 
         output += `
         <div class="event-card">
@@ -129,7 +127,7 @@ document.getElementById("searchInput").addEventListener("keyup", function() {
             <p><b>Date:</b> ${filteredEvents[i].date}</p>
             <p>${filteredEvents[i].description}</p>
 
-            <button class="delete-btn">
+            <button class="delete-btn" onclick="deleteEvent(${originalIndex})">
                 Delete
             </button>
         </div>
