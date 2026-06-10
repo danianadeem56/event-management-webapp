@@ -89,10 +89,6 @@ main{
     background:#8a9cce;
 }
 
-/* #warning{
-    color:black;
-} */
-
 .event-container{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,3fr));
@@ -152,6 +148,7 @@ footer{
     padding:15px;
 }
 
+/* Responsive Design */
 @media(max-width:768px){
 
     header h1{
